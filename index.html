@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemil Çağatay Gençer - Portfolyo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --bg-color: #0c0c0c; 
+            --text-color: #ffffff; 
+            
+         
+            --light-bg: #fffbf2;   
+            
+            --dark-text: #333333;  
+            --accent-color: #e06c6c; 
+            --secondary-text: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+       
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background-color: rgba(12, 12, 12, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+    height: 68px;
+    cursor: pointer;
+    transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 700;
+            margin-left: 35px;
+            font-family: 'Oswald', sans-serif;
+            transition: color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+        }
+
+      
+        .navbar a:hover {
+            color: var(--accent-color) !important; 
+            transform: translateY(-3px);
+        }
+
+       
+        .home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            padding-top: 80px;
+        }
+
+        .home-content {
+            max-width: 600px;
+        }
+
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+        }
+
+     
+        .home-img {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+      
+        .heading {
+            font-size: 36px;
+            color: var(--accent-color);
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+		
+        .works {
+            padding: 80px 10%;
+            background-color: var(--light-bg); 
+            color: var(--dark-text); 
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .works-grid-landscape {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .work-item {
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .work-img-box {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            position: relative;
+            background-color: #f2ede0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .landscape-box {
+            height: 350px;
+        }
+
+        .work-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .work-img-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .work-item h3 {
+            font-size: 18px;
+            color: #222;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+       
+        .about {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 80px 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--secondary-text);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .skill-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .skill-column h4 {
+            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+            color: #fff;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .skill-name {
+            width: 70px;
+        }
+
+       
+        .ai { color: #ff9a00; }
+        .ps { color: #31a8ff; }
+        .ae { color: #d08fff; }
+        .id { color: #ff3366; }
+        .pr { color: #9999ff; }
+        .unity { color: #ccc; }
+        .blender { color: #e67e22; }
+
+        .stars {
+            color: #e67e22;
+            margin-left: 10px;
+            letter-spacing: 2px;
+        }
+        .stars .empty {
+            color: #444;
+        }
+
+        .certificates-list {
+            margin-top: 20px;
+        }
+        .certificates-list li {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--secondary-text);
+        }
+
+        .about-img-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-img {
+            width: 300px;
+            z-index: 2;
+        }
+
+        .software-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: float 4s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .icon-ai { top: 20px; left: 20px; background: #330000; color: #ff9a00; border: 1px solid #ff9a00; animation-delay: 0s; }
+        .icon-ps { top: 20px; right: 20px; background: #001e36; color: #31a8ff; border: 1px solid #31a8ff; animation-delay: 1s; }
+        .icon-ae { bottom: 40px; left: 20px; background: #00005b; color: #d08fff; border: 1px solid #d08fff; animation-delay: 2s; }
+        .icon-pr { bottom: 40px; right: 20px; background: #1a0033; color: #9999ff; border: 1px solid #9999ff; animation-delay: 0.5s; }
+        .icon-id { top: 50%; right: -20px; background: #2b0014; color: #ff3366; border: 1px solid #ff3366; animation-delay: 1.5s; }
+        .icon-unity { top: 50%; left: -20px; background: #222; color: #fff; border: 1px solid #fff; animation-delay: 2.5s; }
+
+       
+        .contact {
+            padding: 80px 10%;
+            background-color: #080808;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+            transition: transform 0.3s;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(224, 108, 108, 0.5);
+        }
+
+        .btn-send {
+            width: 150px;
+            padding: 12px;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn-send:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            flex: 1;
+            color: #ddd;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .contact-text {
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .info-item i {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: 0.3s;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: left;
+            background-color: #080808;
+            font-size: 12px;
+            color: #666;
+            padding-left: 10%;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Mobile --- */
+        @media (max-width: 991px) {
+            header { padding: 20px 4%; }
+            .home { padding: 100px 4% 0; flex-direction: column-reverse; text-align: center; height: auto; padding-bottom: 50px;}
+            .home-img { width: 300px; height: 300px; margin-bottom: 30px; }
+            .about { flex-direction: column; padding: 60px 4%; }
+            .contact { flex-direction: column; padding: 60px 4%; }
+            .navbar a { margin-left: 20px; font-size: 14px; }
+            .works-grid-landscape { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 600px) {
+            .navbar { display: none; }
+            .home-content h1 { font-size: 36px; }
+            .home-content h3 { font-size: 24px; }
+            .work-img-box { height: 350px; }
+            .landscape-box { height: 250px; }
+            .home-img { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo">
+            <img src="LOGO.png" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="#works">ÇALIŞMALAR</a>
+            <a href="#about">HAKKIMDA</a>
+            <a href="#contact">İLETİŞİM</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>CEMİL ÇAĞATAY GENÇER</h1>
+            <h3>GRAFİK TASARIMCI</h3>
+        </div>
+        <div class="home-img">
+            <img src="1.png" alt="Cemil Çağatay Gençer">
+        </div>
+    </section>
+
+    <section class="works" id="works">
+        <h2 class="heading">ÇALIŞMALAR</h2>
+        
+        <div class="works-grid">
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="3.jpeg" alt="Dergi Çalışması">
+                </div>
+                <h3>DERGİ TASARIMI</h3>
+            </div>
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="4.jpeg" alt="Poster Çalışması">
+                </div>
+                <h3>POSTER TASARIMI</h3>
+            </div>
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="5.jpeg" alt="Film Afişi Çalışması">
+                </div>
+                <h3>FİLM AFİŞİ TASARIMI</h3>
+            </div>
+        </div>
+
+        <div class="works-grid">
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="6.jpeg" alt="Kitap Kapağı Tasarımı">
+                </div>
+                <h3>KİTAP KAPAĞI TASARIMI</h3>
+            </div>
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="7.jpeg" alt="Reklam Çalışması">
+                </div>
+                <h3>REKLAM TASARIMI</h3>
+            </div>
+            <div class="work-item">
+                <div class="work-img-box">
+                    <img src="8.jpeg" alt="Kitap Kapağı Tasarımı">
+                </div>
+                <h3>KİTAP KAPAĞI TASARIMI</h3>
+            </div>
+        </div>
+
+        <div class="works-grid-landscape">
+            <div class="work-item">
+                <div class="work-img-box landscape-box">
+                    <img src="9.jpg" alt="Çalışma 9">
+                </div>
+                <h3>DERGİ MOCKUP TASARIMI</h3>
+            </div>
+            <div class="work-item">
+                <div class="work-img-box landscape-box">
+                    <img src="10.jpg" alt="Çalışma 10">
+                </div>
+                <h3>ÇAY AMBALAJI TASARIMI</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="heading">HAKKIMDA</h2>
+            <p class="about-text">
+                Kütahya Dumlupınar Üniversitesi görsel iletişim tasarımı bölümü okumaktayım. Marka kimliği oluşturma illüstrasyon çizim ve oyun geliştirme konularında çalışmayı seviyorum.
+            </p>
+
+            <div class="skills-container">
+                <div class="skill-column">
+                    <h4>PROGRAMLAR</h4>
+                    <div class="skill-item"><span class="skill-name ai">Ai</span> <span class="stars">★★★★<span class="empty">☆</span></span></div>
+                    <div class="skill-item"><span class="skill-name ps">Ps</span> <span class="stars">★★★★★</span></div>
+                    <div class="skill-item"><span class="skill-name ae">Ae</span> <span class="stars">★★★<span class="empty">☆☆</span></span></div>
+                    <div class="skill-item"><span class="skill-name id">Id</span> <span class="stars">★★★<span class="empty">☆☆</span></span></div>
+                </div>
+                <div class="skill-column">
+                    <h4 style="opacity: 0;">.</h4>
+                    <div class="skill-item"><span class="skill-name pr">Pr</span> <span class="stars">★★<span class="empty">☆☆☆</span></span></div>
+                    <div class="skill-item"><span class="skill-name unity">Unity</span> <span class="stars">★★★<span class="empty">☆☆</span></span></div>
+                    <div class="skill-item"><span class="skill-name blender">Blender</span> <span class="stars">★★<span class="empty">☆☆☆</span></span></div>
+                </div>
+            </div>
+
+            <div class="certificates-list">
+                <h4>SERTİFİKALAR</h4>
+                <ul>
+                    <li>&nbsp;</li>
+                    <li>Adobe Photoshop</li>
+<li>Adobe İllustratör</li>
+                    <li>Adobe Indesign</li>
+                    <li>Adobe After Effects</li>
+                    <li>Unity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about-img-container">
+            <img src="22.png" alt="Avatar" class="avatar-img">
+            
+            <div class="software-icon icon-ai">Ai</div>
+            <div class="software-icon icon-ps">Ps</div>
+            <div class="software-icon icon-ae">Ae</div>
+            <div class="software-icon icon-id">Id</div>
+            <div class="software-icon icon-pr">Pr</div>
+            <div class="software-icon icon-unity"><i class="fas fa-cube"></i></div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-form">
+            <h2 class="heading">İLETİŞİM</h2>
+            <input type="text" placeholder="İsim Soyisim">
+            <input type="email" placeholder="E-posta">
+            <textarea placeholder="Mesaj"></textarea>
+            <button class="btn-send">Gönder</button>
+        </div>
+
+        <div class="contact-info">
+            <p class="contact-text">
+                Yaratıcı fikirlerinizi hayata geçirelim.<br>
+                Bütün soru ve önerileriniz için bize ulaşın.
+            </p>
+            
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>: 0539 001 0101</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>: cgtygncr001@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-home"></i>
+                <span>: DPÜ Evliya Çelebi Yerleşkesi,<br> Kütahya Tavşanlı Yolu 10. km</span>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/cagataygencer1?igsh=MTd6Y3dnenlweWNzZg%3D%3D&utm_source=qr" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://wa.me/905399317008" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1A4hzsUGSw/?mibextid=wwXIfr" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <a href="https://youtube.com/@cagataygencer?si=hkgW2kD48vM5CD6H" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                
+                <a href="https://www.behance.net/cagataygencer" target="_blank">
+                    <i class="fab fa-behance"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; Cemil Çağatay Gençer. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
